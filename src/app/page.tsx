@@ -6,8 +6,8 @@ import React, { useEffect, useState } from "react";
 import { ICharacterProps } from "@/interfaces/interface";
 
 import PotterLogo from '@/app/assets/Harry_Potter_Logo.svg'
-import QuestionMark from '@/app/assets/Question_Mark.svg'
 import ModalComponent from "@/Components/ModalComponent";
+import CardComponent from "@/Components/CardComponent";
 
 export default function Home() {
   const [charaData, setCharaData] = useState([]);
@@ -39,13 +39,13 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center justify-between py-12 px-6">
-        <Image src={PotterLogo} alt="Harry Potter Logo" width={480} height={480}/>
+      <main className={`flex min-h-screen flex-col items-center justify-between py-12 px-6`}>
+        <Image src={PotterLogo} alt="Harry Potter Logo" className="bg-white" width={480} height={480}/>
         <div className="grid grid-cols-4 gap-6 text-left pt-12">
           {filteredCharas.length > 0 ? (
             filteredCharas.map((chara: any, index: any) => (
               <div className="bg-slate-500 w-auto h-auto" key={index}>
-                  <img src={chara.image === "" ? QuestionMark : chara.image} alt={chara.name || 'Question Mark'} className="w-72 h-96 object-cover rounded-tr-sm rounded-tl-sm hover:opacity-50 cursor-pointer" onClick={() => handleCharacterClick(chara)}/>
+                  <img src={chara.image} alt={chara.name || 'Question Mark'} className="w-72 h-96 object-cover rounded-tr-sm rounded-tl-sm hover:opacity-50 cursor-pointer" onClick={() => handleCharacterClick(chara)}/>
                   <p className="text-white text-md pl-1">{chara.name}</p>
               </div>
             ))
@@ -56,7 +56,7 @@ export default function Home() {
       </main>
 
       {isModalOpen && (
-        <ModalComponent character={selectChara} onClose={closeModal} />
+        <ModalComponent chara={selectChara} close={closeModal} />
       )}
     </>
   );
