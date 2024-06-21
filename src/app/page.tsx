@@ -41,12 +41,12 @@ export default function Home() {
     <>
       <main className={`flex min-h-screen flex-col items-center justify-between py-12 px-6`}>
         <Image src={PotterLogo} alt="Harry Potter Logo" className="bg-white rounded-md px-12 py-2" width={480} height={480}/>
-        <div className="grid grid-cols-4 gap-6 text-left pt-12">
+        <div className="grid grid-cols-4 gap-12 pt-12">
           {filteredCharas.length > 0 ? (
             filteredCharas.map((chara: any, index: any) => (
-              <div className="bg-slate-500 w-auto h-auto" key={index}>
+              <div className="bg-white w-72 h-auto rounded-md" key={index}>
                   <img src={chara.image} alt={chara.name || 'Question Mark'} className="w-72 h-96 object-cover rounded-tr-sm rounded-tl-sm hover:opacity-50 cursor-pointer" onClick={() => handleCharacterClick(chara)}/>
-                  <p className="text-white text-md pl-1">{chara.name}</p>
+                  <p className="text-black text-2xl text-center font-semibold my-3">{chara.name}</p>
               </div>
             ))
           ) : (
