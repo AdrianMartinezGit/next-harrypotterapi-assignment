@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <>
       <main className={`flex min-h-screen flex-col items-center justify-between py-12 px-6`}>
-        <Image src={PotterLogo} alt="Harry Potter Logo" className="bg-white" width={480} height={480}/>
+        <Image src={PotterLogo} alt="Harry Potter Logo" className="bg-white rounded-md px-12 py-2" width={480} height={480}/>
         <div className="grid grid-cols-4 gap-6 text-left pt-12">
           {filteredCharas.length > 0 ? (
             filteredCharas.map((chara: any, index: any) => (
